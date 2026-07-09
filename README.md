@@ -21,6 +21,9 @@ The Quantum Fourier Transform (QFT) is a fundamental component of many quantum a
 Reducing the **T-count** of QFT circuits is therefore an important optimization for practical fault-tolerant quantum computing. This project implements the T-count reduction technique proposed by Park and Ahn while preserving the functionality of the original AQFT circuit.
 
 ---
+**Note:** This project implements the **6-qubit** version of the Approximate Quantum Fourier Transform (AQFT) to demonstrate the core ideas of the T-count reduction technique. The goal is to provide the smallest non-trivial implementation that is easy to understand, verify, and build upon.
+
+Although this repository focuses on the 6-qubit case, the methods presented in the paper are not limited to this size. The implementation can be extended to larger AQFT circuits by applying the same construction and optimization techniques.
 
 ## How We Do It
 
