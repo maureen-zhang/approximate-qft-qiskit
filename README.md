@@ -45,12 +45,7 @@ This implementation relies on several techniques and assumptions to simplify the
 
 * **Qiskit and Qrisp:** The implementation uses both the Qiskit and Qrisp libraries for circuit construction, simulation, and quantum arithmetic operations.
 
-* **Fourier-basis resource state:** We assume access to the Fourier-basis state
-
-  [
-  |\psi_b\rangle = \mathrm{QFT}|1\rangle_b.
-  ]
-
+* **Fourier-basis resource state:** We assume access to the Fourier-basis state `|ψ_b⟩ = QFT|1⟩_b`.
   This state may be synthesized using a Repeat-Until-Success (RUS) method, such as the approach presented in *Efficient Synthesis of Universal Repeat-Until-Success Circuits* by Alex Bocharov, Martin Roetteler, and Krysta M. Svore.
 
 
