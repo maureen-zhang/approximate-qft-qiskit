@@ -23,7 +23,7 @@ Reducing the **T-count** of QFT circuits is therefore an important optimization 
 ---
 **Note:** This project implements the **6-qubit** version of the Approximate Quantum Fourier Transform (AQFT) to demonstrate the core ideas of the T-count reduction technique. The goal is to provide the smallest non-trivial implementation that is easy to understand, verify, and build upon.
 
-repository illustrated on the n-qubit case with n=6, the methods presented in the paper are not limited to this size. The implementation can be extended to larger AQFT circuits by applying the same construction and optimization techniques.
+For the purposes of this notebook, we generated a random 6-qubit circuit to illustrate the (n)-qubit case with (n=6). However, the methods presented in the paper are not limited to this circuit size. The implementation can be extended to larger AQFT circuits by applying the same construction and optimization techniques.
 
 ## How We Do It
 
