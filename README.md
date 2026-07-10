@@ -29,7 +29,7 @@ For the purposes of this notebook, we generated a random 6-qubit circuit to illu
 ## How We Do It
 
 This implementation follows **AQFT Circuit 1** from **Park and Ahn (2025)** and reproduces its T-count optimization using **Qrisp**.
-
+Here is an illutration for the 6-quibit case:
 [insert picture for the 6qubit case]
 
 The technical details include:
