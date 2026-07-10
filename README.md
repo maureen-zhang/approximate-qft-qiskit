@@ -23,7 +23,7 @@ Reducing the **T-count** of QFT circuits is therefore an important optimization 
 ---
 **Note:** This project implements the **6-qubit** version of the Approximate Quantum Fourier Transform (AQFT) to demonstrate the core ideas of the T-count reduction technique. The goal is to provide the smallest non-trivial implementation that is easy to understand, verify, and build upon.
 
-Although this repository focuses on the 6-qubit case, the methods presented in the paper are not limited to this size. The implementation can be extended to larger AQFT circuits by applying the same construction and optimization techniques.
+repository illustrated on the n-qubit case with n=6, the methods presented in the paper are not limited to this size. The implementation can be extended to larger AQFT circuits by applying the same construction and optimization techniques.
 
 ## How We Do It
 
@@ -33,10 +33,26 @@ The implementation includes:
 
 * Implementation of **AQFT Circuit 1** described in the paper.
 * Implementation of the paper's **T-count reduction** method.
-* Use of **Gidney's quantum adder** as the arithmetic building block.
+* Use of **Gidney's quantum adder** as the arithmetic building block. 
 * Resource analysis and comparison with the standard QFT implementation.
 
 ---
+## Techniques Used
+
+This implementation relies on several techniques and assumptions to simplify the construction of the Approximate Quantum Fourier Transform (AQFT) circuit.
+
+* **Dummy register for the inverse PGT:** We initialize an auxiliary register in the (|0\rangle) state and strategically apply Z gates to simulate the inverse PGT operation described in the paper.
+
+* **Qiskit and Qrisp:** The implementation uses both the Qiskit and Qrisp libraries for circuit construction, simulation, and quantum arithmetic operations.
+
+* **Fourier-basis resource state:** We assume access to the Fourier-basis state
+
+  [
+  |\psi_b\rangle = \mathrm{QFT}|1\rangle_b.
+  ]
+
+  This state may be synthesized using a Repeat-Until-Success (RUS) method, such as the approach presented in *Efficient Synthesis of Universal Repeat-Until-Success Circuits* by Alex Bocharov, Martin Roetteler, and Krysta M. Svore.
+
 
 ## Future Work
 
