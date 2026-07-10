@@ -1,4 +1,4 @@
-# Approximate Quantum Fourier Transform in Qiskit and Qrisp
+# Approximate Quantum Fourier Transform in Qrisp
 
 A Qiskit implementation of the T-count reduction method for the Approximate Quantum Fourier Transform (AQFT) presented by Park and Ahn.
 
@@ -18,46 +18,31 @@ The goal of this project is to reproduce the **T-count reduction** method descri
 
 The Quantum Fourier Transform (QFT) is a fundamental component of many quantum algorithms, including Quantum Phase Estimation, Shor's factoring algorithm, and the Harrow–Hassidim–Lloyd (HHL) algorithm. In fault-tolerant quantum computing, however, non-Clifford gates—particularly **T gates**—are significantly more expensive to implement than Clifford gates.
 
-Reducing the **T-count** of QFT circuits is therefore an important optimization for practical fault-tolerant quantum computing. This project implements the T-count reduction technique proposed by **Park and Ahn, *Reducing T-count and T-depth in Approximate Quantum Fourier Transform Circuits* (2025)** while preserving the functionality of the original AQFT circuit.
+Reducing the **T-count** of QFT circuits is therefore an important optimization for practical fault-tolerant quantum computing. This project implements the T-count reduction technique proposed by **Park and Ahn (2025)** while preserving the functionality of the original AQFT circuit.
 
 ---
 
 **Note:** This project implements the **6-qubit** version of the Approximate Quantum Fourier Transform (AQFT) to demonstrate the core ideas of the T-count reduction technique. The goal is to provide the smallest non-trivial implementation that is easy to understand, verify, and build upon.
 
-For the purposes of this notebook, we generated a random 6-qubit circuit to illustrate the (n)-qubit case with (n=6). However, the methods presented in **Park and Ahn, *Reducing T-count and T-depth in Approximate Quantum Fourier Transform Circuits* (2025)** are not limited to this circuit size. The implementation can be extended to larger AQFT circuits by applying the same construction and optimization techniques.
+For the purposes of this notebook, we generated a random 6-qubit circuit to illustrate the (n)-qubit case with (n=6). However, the methods presented in **Park and Ahn (2025)** are not limited to this circuit size. The implementation can be extended to larger AQFT circuits by applying the same construction and optimization techniques.
 
 ## How We Do It
 
-This implementation follows **AQFT Circuit 1** from **Park and Ahn, *Reducing T-count and T-depth in Approximate Quantum Fourier Transform Circuits* (2025)** and reproduces its T-count optimization in Qiskit.
+This implementation follows **AQFT Circuit 1** from **Park and Ahn (2025)** and reproduces its T-count optimization using **Qrisp**.
 
-The implementation includes:
+The technical details include:
 
-* Implementation of **AQFT Circuit 1** described in **Park and Ahn, *Reducing T-count and T-depth in Approximate Quantum Fourier Transform Circuits* (2025)**.
-* Implementation of the paper's **T-count reduction** method.
-* Use of **Gidney's quantum adder** as the arithmetic building block.
-* Resource analysis and comparison with the standard QFT implementation.
+* The use of **Gidney's quantum adder** as the arithmetic building block.
+* We assume access to the prepared Fourier-basis resource state `|ψ_b⟩ = QFT|1⟩_b`. In this notebook, we synthesize `|ψ_b⟩` directly using the QFT rather than implementing its fault-tolerant preparation. In practice, this state can be prepared using a **Repeat-Until-Success (RUS)** method, such as that presented by **Bocharov, Roetteler, and Svore (2015)** and implemented in the Microsoft Quantum sample repository: https://github.com/microsoft/quantum/tree/main/samples/algorithms/repeat-until-success.
+* **Dummy register for the inverse PGT:** We initialize an auxiliary register in the `|0⟩` state and strategically apply Z gates to simulate the inverse PGT operation described by **Park and Ahn (2025)**, which is crucial for reducing the T-count.
 
----
-
-## Techniques Used
-
-This implementation relies on several techniques and assumptions to simplify the construction of the Approximate Quantum Fourier Transform (AQFT) circuit.
-
-* **Dummy register for the inverse PGT:** We initialize an auxiliary register in the (|0\rangle) state and strategically apply Z gates to simulate the inverse PGT operation described in **Park and Ahn, *Reducing T-count and T-depth in Approximate Quantum Fourier Transform Circuits* (2025)**.
-
-* **Qiskit and Qrisp:** The implementation uses both the Qiskit and Qrisp libraries for circuit construction, simulation, and quantum arithmetic operations.
-
-* **Fourier-basis resource state:** We assume access to the Fourier-basis state `|ψ_b⟩ = QFT|1⟩_b`.
-  This state may be synthesized using a Repeat-Until-Success (RUS) method, such as the approach presented in **Bocharov, Roetteler, and Svore, *Efficient Synthesis of Universal Repeat-Until-Success Circuits* (2015)**.
-
+  
 ## Future Work
 
 Possible extensions of this project include:
 
-* Implementing the **T-depth reduction** described in **Park and Ahn, *Reducing T-count and T-depth in Approximate Quantum Fourier Transform Circuits* (AQFT Circuit 2)**.
+* Implementing the **T-depth reduction** described in **Park and Ahn, (AQFT Circuit 2)**.
 * Further simplifying single-qubit unitary decompositions using Clifford+T synthesis.
-* Investigating more efficient Clifford+T synthesis algorithms for arbitrary single-qubit rotations.
-* Developing automated Clifford+T optimization passes for Qiskit.
 * Benchmarking larger AQFT circuits and comparing them with other QFT implementations.
 * Evaluating the trade-off between approximation error and T-count reduction across different quantum algorithms.
 
