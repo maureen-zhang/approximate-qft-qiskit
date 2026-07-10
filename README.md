@@ -69,6 +69,8 @@ Possible extensions of this project include:
 
 ## References
 
-1. Park, B., & Ahn, D. (2025). *Reducing T-count and T-depth in Approximate Quantum Fourier Transform Circuits*. **Scientific Reports**, 15, 37199. DOI: 10.1038/s41598-025-21087-2.
+1. Byeongyong Park and Doyeol Ahn, **"Reducing T-count and T-depth in Approximate Quantum Fourier Transform Circuits."**
 
-2. [Reducing T-count and T-depth in Approximate Quantum Fourier Transform Circuits (Nature)](https://www.nature.com/articles/s41598-025-21087-2?utm_source=chatgpt.com)
+2. Craig Gidney, **"Halving the Cost of Quantum Addition."**
+
+3. Alex Bocharov, Martin Roetteler, and Krysta M. Svore, **"Efficient Synthesis of Universal Repeat-Until-Success Circuits."**
