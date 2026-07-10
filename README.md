@@ -30,6 +30,8 @@ For the purposes of this notebook, we generated a random 6-qubit circuit to illu
 
 This implementation follows **AQFT Circuit 1** from **Park and Ahn (2025)** and reproduces its T-count optimization using **Qrisp**.
 
+[insert picture for the 6qubit case]
+
 The technical details include:
 
 * The use of **Gidney's quantum adder** as the arithmetic building block.
