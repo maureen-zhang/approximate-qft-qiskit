@@ -34,10 +34,11 @@ Here is an illutration for the 6-quibit case:
 
 The technical details include:
 
-* The use of **Gidney's quantum adder** as the arithmetic building block.
-* We assume access to the prepared Fourier-basis resource state `|ψ_b⟩ = QFT|1⟩_b`. In this notebook, we synthesize `|ψ_b⟩` directly using the QFT rather than implementing its fault-tolerant preparation. In practice, this state can be prepared using a **Repeat-Until-Success (RUS)** method, such as that presented by **Bocharov, Roetteler, and Svore (2015)** and implemented in the Microsoft Quantum sample repository: https://github.com/microsoft/quantum/tree/main/samples/algorithms/repeat-until-success.
-* **Dummy register for the inverse PGT:** We initialize an auxiliary register in the `|0⟩` state and strategically apply Z gates to simulate the inverse PGT operation described by **Park and Ahn (2025)**, which is crucial for reducing the T-count.
+- **Gidney's quantum adder:** We use **Gidney's quantum adder** as the arithmetic building block throughout the implementation.
 
+- **Fourier-basis resource state:** We assume access to the prepared Fourier-basis resource state \(|\psi_b\rangle = \mathrm{QFT}|1\rangle_b\). In this notebook, we synthesize \(|\psi_b\rangle\) directly using the QFT rather than implementing its fault-tolerant preparation. In practice, this state can be prepared using a **Repeat-Until-Success (RUS)** method, such as the approach presented by **Bocharov, Roetteler, and Svore (2015)** and implemented in the Microsoft Quantum sample repository: <https://github.com/microsoft/quantum/tree/main/samples/algorithms/repeat-until-success>.
+
+- **Inverse PGT:** By identifying subcircuits that implement the inverse PGT, we replace them with a **Gidney adder** acting on a specially prepared Fourier-basis resource state. This substitution is the key optimization that significantly reduces the overall **T-count**.
   
 ## Future Work
 
